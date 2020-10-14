@@ -1,11 +1,2 @@
-# data-structures-and-algorithms
+# Data Structure & Algorithm | Code Challenges
 
-## Table of Contents
-
-### Code-Challenge
-
-1:[array-reverse](arrayReverse/array-reverse.js)
-
-2:
-
-3:
