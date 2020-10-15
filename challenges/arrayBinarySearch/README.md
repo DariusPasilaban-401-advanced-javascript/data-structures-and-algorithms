@@ -19,3 +19,5 @@ Created a function that takes 2 parameters (a sorted array and a search key). Us
 
 ## Solution
 <!-- Embedded whiteboard image -->
+
+<img src="cc3.png">
