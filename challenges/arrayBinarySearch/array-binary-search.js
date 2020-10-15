@@ -6,7 +6,7 @@ function binarySearch(sortedArray, searchKey){
   let lastIdx = sortedArray.length - 1;
   middleIdx = Math.floor((lastIdx + firstIdx)/2);
 
-  while(sortedArray[middleIdx] != value && firstIdx < lastIdx){
+  while(sortedArray[middleIdx] != searchKey && firstIdx < lastIdx){
 
     if(searchKey < sortedArray[middleIdx]){
 
@@ -23,3 +23,5 @@ function binarySearch(sortedArray, searchKey){
   return (sortedArray[middleIdx] != searchKey) ? -1 : middleIdx;
 
 }
+
+module.exports = binarySearch;
