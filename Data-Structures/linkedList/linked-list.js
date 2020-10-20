@@ -20,3 +20,18 @@ LinkedList(){
 
 }
 
+
+// ===================== Code Challenge: Class 06
+
+append(value){
+
+}
+
+insertBefore(value, newVal){
+
+}
+
+
+insertAfter(value, newVal){
+  
+}
