@@ -154,3 +154,9 @@ console.log(toStringResult);
 // insertAfter(value, newVal){
   
 // }
+
+// ===================== Code Challenge: Class 07
+
+// kthFromEnd(){
+
+// }
