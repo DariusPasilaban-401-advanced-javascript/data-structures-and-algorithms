@@ -74,3 +74,4 @@ test('Testing insertAfter()', () => {
   console.log(linkedlist);
   expect(results).toEqual('777 => 99 => 4 => 979 => 8 => NULL');
 });
+

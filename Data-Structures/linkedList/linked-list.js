@@ -1,7 +1,4 @@
 
-
-
-
 //class for the Node
 class Node{
 
