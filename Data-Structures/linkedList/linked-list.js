@@ -1,8 +1,11 @@
 
+
+
+
 //class for the Node
 class Node{
 
-  constructor(value){
+  constructor(value = null){
   this.value = value;
   this.next = null;
   }
@@ -14,6 +17,7 @@ class LinkedList {
 
   constructor(head = null){
     this.head = head;
+    this.current = this.head;
   }
 
   traverse() {
@@ -31,24 +35,10 @@ class LinkedList {
 
   //adds a new node with value to linked list
   insert(valueToAdd){
-    let addedNode = new Node(valueToAdd);
-
-    //need to traverser
-    let current = this.head;
-
-    //start traversing with while loop
-    //when current is null (end was reached)
-    while(current){
-
-      //add something before we hit end
-      //current === null
-      if(current.next === null){
-        current.next = addedNode;
-        return this;
-      }
-
-      current = current.next;
-    }
+    this.current = this.head;
+    let node = new Node(valueToAdd);
+    node.next = this.head;
+    this.head = node;
   }
 
 
@@ -70,7 +60,7 @@ class LinkedList {
       } 
     }
 
-    return 'Reached the end of the list, value does not exist'
+    return false;
   }
 
 
@@ -78,57 +68,24 @@ class LinkedList {
 
   toString(){
     //set a variable to the very first node of the list
-    let current = this.head;
+     this.current = this.head;
+     if(this.head == null){
+       return '';
+     }
 
+    let toStringResult = '';
     //start traversing with while loop
-    while(current){
-      toStringResult += current.value + arrowSign;
-      current = current.next;
+    while(this.current !== null){
+      toStringResult += `${this.current.value} => `
+      this.current = this.current.next;
     }
 
     toStringResult += 'NULL';
+    return toStringResult;
     // console.log('reached the end of the list')
 
     
   }
 }
 
-
-const newNode1 = new Node(1);
-const newNode2 = new Node([1, 2, 3]);
-
-const linkedlist = new LinkedList(newNode1);
-
-
-// ======== insert() sample
-// linkedlist.insert(newNode2);
-linkedlist.insert(4);
-linkedlist.insert(7);
-
-
-// ======== includes() sample
-linkedlist.includes(77);
-
-
-// ======== toString() sample
-let toStringResult = '';
-let arrowSign = ' -> '
-linkedlist.toString();
-console.log(toStringResult);
-
-
-
-// ===================== Code Challenge: Class 06
-
-// append(value){
-
-// }
-
-// insertBefore(value, newVal){
-
-// }
-
-
-// insertAfter(value, newVal){
-  
-// }
+module.exports = LinkedList;
