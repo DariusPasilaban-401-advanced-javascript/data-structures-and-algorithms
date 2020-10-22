@@ -1,7 +1,4 @@
 
-
-
-
 //class for the Node
 class Node{
 
@@ -86,6 +83,81 @@ class LinkedList {
 
     
   }
+
+
+
+//Thanks to https://codeburst.io/linked-lists-in-javascript-es6-code-part-1-6dd349c3dcc3
+  append(value){
+
+    //see lines 6-13
+    //1 create a new node
+    //2 put in value
+    //3 set next to null
+    let newNode = new Node(value);
+
+    //4 if linked list is empty, then make the new node head
+    if(!this.head){
+      this.head = newNode;
+      return this.head;
+    } 
+
+    let tail = this.head
+    while(tail.next !== null){
+      tail = tail.next;
+    }
+
+    tail.next = newNode;
+    return this.head;
+
+    
+
+  }
+
+
+  //Thanks to https://stackoverflow.com/questions/6824067/manual-linked-list-insert-before-method
+  insertBefore(value, newVal){
+
+    let current = this.head;
+
+
+    while(current.next != null){
+      
+      if (current.next.value === value){
+        let newNode = new Node(newVal);
+        newNode.next = current.next;
+        current.next = newNode;
+        return
+      }
+      current = current.next;
+    }
+
+    return this.head;
+
+  }
+
+
+
+  insertAfter(value, newVal){
+
+    let current = this.head;
+
+
+    while(current.next != null){
+      
+      if (current.value === value){
+        let newNode = new Node(newVal);
+        newNode.next = current.next;
+        current.next = newNode;
+        return
+      }
+      current = current.next;
+    }
+
+    return this.head;
+
+  }
+
+
 }
 
 module.exports = LinkedList;
