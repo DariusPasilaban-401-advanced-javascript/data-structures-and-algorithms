@@ -1,12 +1,12 @@
 'use strict';
 const LinkedList = require('./linked-list.js');
 
-  test('Return a string representing all the values in the Linked List. Format: 1 -> 4 -> 7 -> NULL', () => {
+  test('Testing toString()', () => {
     const linkedlist = new LinkedList();
     expect(linkedlist.head).toBeNull();
 });
 
-test('Return a string representing all the values in the Linked List. Format: 1 -> 4 -> 7 -> NULL', () => {
+test('Testing insert()', () => {
   const linkedlist = new LinkedList();
   linkedlist.insert(4);
   linkedlist.insert(99);
@@ -18,7 +18,7 @@ test('Return a string representing all the values in the Linked List. Format: 1 
   expect(results).toEqual('777 => 99 => 4 => NULL');
 });
 
-test('Return a string representing all the values in the Linked List. Format: 1 -> 4 -> 7 -> NULL', () => {
+test('Testing includes()', () => {
   const linkedlist = new LinkedList();
   linkedlist.insert(4);
   linkedlist.insert(5);
