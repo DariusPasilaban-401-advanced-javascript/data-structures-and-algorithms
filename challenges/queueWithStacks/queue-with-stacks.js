@@ -99,3 +99,35 @@ class Queue{
   }
 
 }
+
+
+class PseudoQueue{
+
+  enqueue(value){
+
+    const newNode = new Node(value);
+
+    if(this.rear){
+      this.rear.next = newNode; //we would get a typeError
+    }
+    this.rear = newNode;
+
+    if(!this.front){
+      this.front = this.rear;
+    }
+  }
+
+
+  dequeue(){
+
+    const temp = this.front;
+    this.front = this.front.next;
+    temp.next = null; 
+
+    if(this.isEmpty()){
+      this.rear = null;
+    }
+    return temp.value;
+  }
+
+}
