@@ -45,9 +45,35 @@ test('return a collection from a preorder traversal', () => {
   testBinarySearchTree.add(999);
   testBinarySearchTree.add(777);
   testBinarySearchTree.add(88);
-  // testBinarySearchTree.add(99);
-  // testBinarySearchTree.add(77);
+  expect(testBinarySearchTree.preOrder(testBinarySearchTree.root)).toEqual(ArrOfCol);
   // console.log(testBinarySearchTree.preOrder(testBinarySearchTree.root));
-  // expect(testBinarySearchTree.preOrder(testBinarySearchTree.root)).toEqual(ArrOfCol);
-  expect(testBinarySearchTree).toEqual(ArrOfCol);
+  // console.log(testBinarySearchTree.root.left);
+
+
+})
+
+let ArrOfCol2 = [88,777,888,999];
+test('return a collection from an inorder traversal', () => {
+  const testBinarySearchTree = new BinarySearchTree();
+
+  testBinarySearchTree.add(888);
+  testBinarySearchTree.add(999);
+  testBinarySearchTree.add(777);
+  testBinarySearchTree.add(88);
+  // console.log(testBinarySearchTree);
+  expect(testBinarySearchTree.inOrder(testBinarySearchTree.root)).toEqual(ArrOfCol2);
+
+})
+
+let ArrOfCol3 = [88,777,999,888];
+test('return a collection from a postorder traversal', () => {
+  const testBinarySearchTree = new BinarySearchTree();
+
+  testBinarySearchTree.add(888);
+  testBinarySearchTree.add(999);
+  testBinarySearchTree.add(777);
+  testBinarySearchTree.add(88);
+  // console.log(testBinarySearchTree);
+  expect(testBinarySearchTree.postOrder(testBinarySearchTree.root)).toEqual(ArrOfCol3);
+
 })
