@@ -1,3 +1,4 @@
+'use strict';
 
 //class for the Node
 class Node{
@@ -158,6 +159,14 @@ class LinkedList {
   }
 
 
+kthFromEnd(number){
+
+}
+
 }
 
 module.exports = LinkedList;
+
+
+
+
