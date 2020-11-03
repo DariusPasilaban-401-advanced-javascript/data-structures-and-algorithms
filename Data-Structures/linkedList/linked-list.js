@@ -169,6 +169,4 @@ module.exports = LinkedList;
 
 
 
-// ===================== Code Challenge: Class 07
-
 
