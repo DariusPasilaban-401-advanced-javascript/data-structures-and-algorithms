@@ -10,6 +10,8 @@ class Node{
 }
 
 let POarr = [];
+let IOarr = [];
+let postOrderArr = [];
 
 class BinaryTree{
 
@@ -50,9 +52,10 @@ class BinaryTree{
     }
     // processing of the node
     if (currentNode) {
-      console.log(currentNode.value);
+      // console.log(currentNode.value);
+      postOrderArr.push(currentNode.value);
     }
-    return;
+    return postOrderArr;
   }
   inOrder(root) {
     let currentNode = root; // our beginning node
@@ -63,13 +66,14 @@ class BinaryTree{
     }
     // processing of the node
     if (currentNode) {
-      console.log(currentNode.value);
+      // console.log(currentNode.value);
+      IOarr.push(currentNode.value);
     }
     // we move current Node to the right if it exists;
     if (currentNode.right) {
       this.inOrder(currentNode.right);
     }
-    return;
+    return IOarr;
   }
 
 }
@@ -78,18 +82,24 @@ class BinarySearchTree extends BinaryTree{
 
   constructor(root){
     super(root);
+    // this.root = root;
     this.size = 0;
   }
 
-  add(value, root){
+  add(value){
 
-    let currentNode = root;
+    // let currentNode = root;
 
     let newNode = new Node(value);
 
     if(this.root === null){
       this.root = newNode;
+    } 
+    //trial
+    else{
+      this.insertNode(this.root, newNode);
     }
+  }
     
     //working
     // if(newNode.value > this.root.value){
@@ -98,24 +108,21 @@ class BinarySearchTree extends BinaryTree{
     //   this.root.left = new Node(value);
     // }
 
-    //test
-    if(!currentNode.right){
-      currentNode.right = newNode;
-    } else if(newNode.value > currentNode.right.value){
-      currentNode.right
-    }
+     insertNode(node, newNode){
+     if(newNode.value < node.value){
 
-    if (currentNode.left) {
-      this.preOrder(currentNode.left);
-    }
+      if(node.left === null){
+        node.left = newNode;
+      } else{
+        this.insertNode(node.left, newNode);
+      }
 
-
-    newNode.value > this.root.value){
-      this.root.right = new Node(value);
-    } 
-    
-    else if(newNode.value < this.root.value){
-      this.root.left = new Node(value);
+    } else{
+      if(node.right === null){
+        node.right = newNode;
+      } else{
+        this.insertNode(node.right, newNode)
+      }
     }
 
   }
