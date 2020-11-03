@@ -4,10 +4,12 @@ class Node{
 
   constructor(value){
     this.value = value;
-    this.descendants = [];
-    this.parent = null;
+    this.left = null;
+    this.right = null;
   }
 }
+
+let POarr = [];
 
 class BinaryTree{
 
@@ -20,7 +22,9 @@ class BinaryTree{
     // process Current First, than the left, than the right
     // processing of the node
     if (currentNode) {
-      console.log(currentNode.value);
+      // console.log(currentNode.value);
+      POarr.push(currentNode.value);
+
     }
     // we nove current node to the left if it exists;
     if (currentNode.left) {
@@ -30,7 +34,7 @@ class BinaryTree{
     if (currentNode.right) {
       this.preOrder(currentNode.right);
     }
-    return;
+    return POarr;
   }
   
   postOrder(root) {
@@ -72,28 +76,47 @@ class BinaryTree{
 
 class BinarySearchTree extends BinaryTree{
 
-  add(value){
+  constructor(root){
+    super(root);
+    this.size = 0;
+  }
+
+  add(value, root){
+
+    let currentNode = root;
 
     let newNode = new Node(value);
 
-    const newNode = new TreeNode(value);
-
-  if (this.root) {
-    const { found, parent } = this.findNodeAndParent(value);
-    if (found) { // duplicated: value already exist on the tree
-      found.meta.multiplicity = (found.meta.multiplicity || 1) + 1;
-    } else if (value < parent.value) {
-      parent.left = newNode;
-    } else {
-      parent.right = newNode;
+    if(this.root === null){
+      this.root = newNode;
     }
-  } else {
-    this.root = newNode;
-  }
+    
+    //working
+    // if(newNode.value > this.root.value){
+    //   this.root.right = new Node(value);
+    // } else if(newNode.value < this.root.value){
+    //   this.root.left = new Node(value);
+    // }
 
-  this.size += 1;
-  return newNode;
-  
+    //test
+    if(!currentNode.right){
+      currentNode.right = newNode;
+    } else if(newNode.value > currentNode.right.value){
+      currentNode.right
+    }
+
+    if (currentNode.left) {
+      this.preOrder(currentNode.left);
+    }
+
+
+    newNode.value > this.root.value){
+      this.root.right = new Node(value);
+    } 
+    
+    else if(newNode.value < this.root.value){
+      this.root.left = new Node(value);
+    }
 
   }
 
