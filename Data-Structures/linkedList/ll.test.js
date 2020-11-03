@@ -1,77 +1,26 @@
 'use strict';
-const LinkedList = require('./linked-list.js');
 
-  test('Testing toString()', () => {
-    const linkedlist = new LinkedList();
-    expect(linkedlist.head).toBeNull();
-});
+test('Where k is greater than the length of the linked list', () => {
 
-test('Testing insert()', () => {
-  const linkedlist = new LinkedList();
-  linkedlist.insert(4);
-  linkedlist.insert(99);
-  linkedlist.insert(777);
+  expect().toEqual();
+})
 
+test('Where k and the length of the list are the same', () => {
 
-  const results = linkedlist.toString();
-  console.log(linkedlist);
-  expect(results).toEqual('777 => 99 => 4 => NULL');
-});
+  expect().toEqual();
+})
 
-test('Testing includes()', () => {
-  const linkedlist = new LinkedList();
-  linkedlist.insert(4);
-  linkedlist.insert(5);
-  linkedlist.insert(6);
+test('Where k is not a positive integer', () => {
 
+  expect().toEqual();
+})
 
-  expect(linkedlist.includes(5)).toBeTruthy();
-  expect(linkedlist.includes(35)).toBeFalsy();
+test('Where the linked list is of a size 1', () => {
 
-});
+  expect().toEqual();
+})
 
+test('"Happy Path” where k is not at the end, but somewhere in the middle of the linked list', () => {
 
-test('Testing append()', () => {
-  const linkedlist = new LinkedList();
-  linkedlist.insert(4);
-  linkedlist.insert(99);
-  linkedlist.insert(777);
-  linkedlist.append(8);
-
-
-  const results = linkedlist.toString();
-  console.log(linkedlist);
-  expect(results).toEqual('777 => 99 => 4 => 8 => NULL');
-});
-
-//Thanks to https://stackoverflow.com/questions/6824067/manual-linked-list-insert-before-method
-test('Testing insertBefore()', () => {
-  const linkedlist = new LinkedList();
-  linkedlist.insert(4);
-  linkedlist.insert(99);
-  linkedlist.insert(777);
-  linkedlist.append(8);
-  linkedlist.insertBefore(4,100);
-
-
-  const results = linkedlist.toString();
-  console.log(linkedlist);
-  expect(results).toEqual('777 => 99 => 100 => 4 => 8 => NULL');
-});
-
-
-
-test('Testing insertAfter()', () => {
-  const linkedlist = new LinkedList();
-  linkedlist.insert(4);
-  linkedlist.insert(99);
-  linkedlist.insert(777);
-  linkedlist.append(8);
-  linkedlist.insertAfter(4,979);
-
-
-  const results = linkedlist.toString();
-  console.log(linkedlist);
-  expect(results).toEqual('777 => 99 => 4 => 979 => 8 => NULL');
-});
-
+  expect().toEqual();
+})
