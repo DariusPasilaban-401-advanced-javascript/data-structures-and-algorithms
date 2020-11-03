@@ -7,6 +7,7 @@ class Node{
   }
 }
 
+
 class Stack{
   
   constructor(){
@@ -33,101 +34,40 @@ class Stack{
 
 
   peek(){
-    if(!this.isEmpty()){
+    // if(!this.isEmpty()){
       return this.top.value
-    }
+    // }
   }
-
-
-  isEmpty(){
-    if(this.top === null){
-      return true;
-    } else{
-      false;
-    }
-  }
-}
-
-
-class Queue{
-  constructor(){
-    this.front = null;
-    this.rear = null;
-  }
-
-  enqueue(value){
-
-    const newNode = new Node(value);
-
-    if(this.rear){
-      this.rear.next = newNode; //we would get a typeError
-    }
-    this.rear = newNode;
-
-    if(!this.front){
-      this.front = this.rear;
-    }
-  }
-
-
-  dequeue(){
-
-    const temp = this.front;
-    this.front = this.front.next;
-    temp.next = null; 
-
-    if(this.isEmpty()){
-      this.rear = null;
-    }
-    return temp.value;
-  }
-
-
-  peek(){
-
-    if(!isEmpty()){
-      return this.front.value
-    }
-  }
-
-  isEmpty(){
-    if(this.front === null){
-      return true;
-    } else{
-      false;
-    }
-  }
-
 }
 
 
 class PseudoQueue{
 
+  constructor(){
+    this.front = new Stack();
+    this.back = new Stack();
+  }
+
   enqueue(value){
-
-    const newNode = new Node(value);
-
-    if(this.rear){
-      this.rear.next = newNode; //we would get a typeError
+    while(this.front.top){
+      let transfer = this.front.pop();
+      this.back.push(transfer);
     }
-    this.rear = newNode;
-
-    if(!this.front){
-      this.front = this.rear;
+    this.front.push(value);
+    while(this.back.top){
+      let transfer = this.back.pop();
+      this.front.push(transfer);
     }
   }
 
-
   dequeue(){
-
-    const temp = this.front;
-    this.front = this.front.next;
-    temp.next = null; 
-
-    if(this.isEmpty()){
-      this.rear = null;
-    }
-    return temp.value;
+    return this.front.pop();
   }
 
 }
+
+module.exports = {Node, Stack, PseudoQueue};
+
+
+
+
