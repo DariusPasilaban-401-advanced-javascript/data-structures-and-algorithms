@@ -14,6 +14,7 @@ let IOarr = [];
 let postOrderArr = [];
 let maxValue = 0;
 
+
 class BinaryTree{
 
   constructor(){
@@ -26,10 +27,16 @@ class BinaryTree{
     // processing of the node
     if (currentNode) {
       // console.log(currentNode.value);
-      if(maxValue > currentNode.value){
-        maxValue = currentNode.value;
+      if(currentNode.value % 3 === 0 && currentNode.value % 5 === 0){
+        currentNode.value = 'fizzbuzz';
+      } else if(currentNode.value % 3 === 0){
+        currentNode.value = 'Fizz';
+      } else if(currentNode.value % 5 === 0){
+        currentNode.value = 'Buzz';
+      } else{
+        currentNode.value = currentNode.value.toString();
       }
-      POarr.push(currentNode.value);
+      
 
     }
     // we nove current node to the left if it exists;
@@ -40,7 +47,7 @@ class BinaryTree{
     if (currentNode.right) {
       this.preOrder(currentNode.right);
     }
-    return POarr;
+    return mirrorTree;
   }
   
   postOrder(root) {
@@ -105,6 +112,8 @@ class BinaryTree{
 
 
 }
+
+let breaker = false;
 
 class BinarySearchTree extends BinaryTree{
 
@@ -181,6 +190,38 @@ class BinarySearchTree extends BinaryTree{
     }
   }
 
+  FizzBuzzTree(root) {
+    let currentNode = root; // our beginning node
+    // process Current First, than the left, than the right
+    // processing of the node
+    if (currentNode) {
+
+      while(currentNode.value != 15){
+        // console.log(currentNode.value);
+        if(currentNode.value % 3 === 0 && currentNode.value % 5 === 0){
+          currentNode.value = 'fizzbuzz';
+          
+        } else if(currentNode.value % 3 === 0){
+          currentNode.value = 'Fizz';
+        } else if(currentNode.value % 5 === 0){
+          currentNode.value = 'Buzz';
+        } else{
+          currentNode.value = currentNode.value.toString();
+        }
+      }
+      
+    }
+    // we nove current node to the left if it exists;
+    if (currentNode.left) {
+      this.preOrder(currentNode.left);
+    }
+    // we move current Node to the right if it exists;
+    if (currentNode.right) {
+      this.preOrder(currentNode.right);
+    }
+    return mirrorTree;
+  }
+
 
   contains(value){
 
@@ -192,4 +233,6 @@ class BinarySearchTree extends BinaryTree{
 
 }
 
+
+let mirrorTree = new BinarySearchTree();
 module.exports = {BinaryTree, BinarySearchTree};

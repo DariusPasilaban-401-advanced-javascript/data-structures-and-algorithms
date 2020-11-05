@@ -16,7 +16,10 @@ test('If the value is divisible by 3, replace the value with “Fizz”', () => 
   testBinarySearchTree.add(12);
   testBinarySearchTree.add(15);
 
-  // console.log(JSON.stringify(testBinarySearchTree) );
-  
+  let mirrorTestBinarySearchTree = testBinarySearchTree;
+
+  // console.log(JSON.stringify(mirrorTestBinarySearchTree.FizzBuzzTree(mirrorTestBinarySearchTree.root)));
+  console.log(JSON.stringify(mirrorTestBinarySearchTree.FizzBuzzTree(mirrorTestBinarySearchTree.root)) );
+
 
 })
